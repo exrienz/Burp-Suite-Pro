@@ -22,7 +22,7 @@ if ! command -v javac >/dev/null 2>&1; then
     echo "Java JDK 19 is not installed, installing"
     mkdir -p /usr/local/java
     mkdir -p /usr/local/java/jdk19
-    curl -L https://download.oracle.com/java/19/latest/jdk-19_linux-x64_bin.tar.gz -o jdk19.tar.gz
+    curl -L https://download.oracle.com/java/19/archive/jdk-19_linux-x64_bin.tar.gz -o jdk19.tar.gz
     tar -xf jdk19.tar.gz -C /usr/local/java/jdk19 --strip-components=1
     rm jdk19.tar.gz
     echo "export JAVA_HOME=/usr/local/java/jdk19" | sudo tee -a /etc/environment
@@ -35,15 +35,15 @@ fi
 
 # Check if Java JRE 8 is installed
 if ! command -v java >/dev/null 2>&1; then
-    jre8_url=https://javadl.oracle.com/webapps/download/AutoDL?BundleId=244548_89d678f2be164786b292527658ca1605
+    jre8_url=https://javadl.oracle.com/webapps/download/GetFile/1.8.0_331-b09/165374ff4ea84ef0bbd821706e29b123/linux-i586/jre-8u331-linux-x64.tar.gz
     sudo mkdir -p /usr/local/java/jre8
     sudo curl -L -o /usr/local/java/jre8/jre8.tar.gz $jre8_url
     sudo tar -xzf /usr/local/java/jre8/jre8.tar.gz -C /usr/local/java/jre8
     sudo rm /usr/local/java/jre8/jre8.tar.gz
-    sudo update-alternatives --install /usr/bin/java java /usr/local/java/jre8/jre1.8.0_301/bin/java 1
-    sudo update-alternatives --install /usr/bin/javac javac /usr/local/java/jre8/jre1.8.0_301/bin/javac 1
-    sudo update-alternatives --set java /usr/local/java/jre8/jre1.8.0_301/bin/java 1
-    sudo update-alternatives --set javac /usr/local/java/jre8/jre1.8.0_301/bin/javac 1
+    sudo update-alternatives --install /usr/bin/java java /usr/local/java/jre8/jre1.8.0_331/bin/java 1
+    sudo update-alternatives --install /usr/bin/javac javac /usr/local/java/jre8/jre1.8.0_331/bin/javac 1
+    sudo update-alternatives --set java /usr/local/java/jre8/jre1.8.0_331/bin/java 1
+    sudo update-alternatives --set javac /usr/local/java/jre8/jre1.8.0_331/bin/javac 1
     echo "Java JRE 8 downloaded and installed successfully"
 fi
 
