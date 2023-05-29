@@ -23,9 +23,9 @@ if ! command -v javac >/dev/null 2>&1; then
     mkdir -p /usr/local/java
     mkdir -p /usr/local/java/jdk19
     curl -L https://download.oracle.com/java/19/archive/jdk-19_linux-x64_bin.tar.gz -o jdk19.tar.gz
-    tar -xf jdk19.tar.gz -C /usr/local/java/jdk19 --strip-components=1
+    tar -xf jdk19.tar.gz -C /usr/local/java/jdk19/ --strip-components=1
     rm jdk19.tar.gz
-    echo "export JAVA_HOME=/usr/local/java/jdk19" | sudo tee -a /etc/environment
+    #echo "export JAVA_HOME=/usr/local/java/jdk19" | sudo tee -a /etc/environment
     echo "export PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/usr/local/java/jdk19/bin" | sudo tee -a /etc/environment
     sudo update-alternatives --install /usr/bin/java java /usr/local/java/jdk19/bin/java 1
     sudo update-alternatives --install /usr/bin/javac javac /usr/local/java/jdk19/bin/javac 1
