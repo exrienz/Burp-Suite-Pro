@@ -22,6 +22,7 @@ if ! command -v javac >/dev/null 2>&1; then
     echo "Java JDK 19 is not installed, installing"
     mkdir -p /usr/local/java
     mkdir -p /usr/local/java/jdk19
+    apt-get install curl -y
     curl -L https://download.oracle.com/java/19/archive/jdk-19_linux-x64_bin.tar.gz -o jdk19.tar.gz
     tar -xf jdk19.tar.gz -C /usr/local/java/jdk19/ --strip-components=1
     rm jdk19.tar.gz
